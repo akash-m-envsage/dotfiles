@@ -82,7 +82,7 @@ ZSH_DISABLE_COMPFIX=true
 #     plugins=(docker git golang jira macos pyenv pylint python terraform)
 #   fi
 # fi
-plugins=(git,nvm, dotenv)
+plugins=(git nvm dotenv)
 source $ZSH/oh-my-zsh.sh
 source ~/.purepower
 
