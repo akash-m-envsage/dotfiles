@@ -8,7 +8,8 @@ export ZSH="${HOME}/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="benmatselby"
+# ZSH_THEME="benmatselby"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -71,18 +72,19 @@ ZSH_DISABLE_COMPFIX=true
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # Apple Silicon
-if [ $(arch) = "arm64" ]; then
-  plugins=(docker git golang jira macos pyenv pylint python terraform)
-else
-  # VS Code Containers
-  if [[ ${REMOTE_CONTAINERS} ]] ; then
-    plugins=(docker git golang terraform)
-  else
-    plugins=(docker git golang jira macos pyenv pylint python terraform)
-  fi
-fi
-
+# if [ $(arch) = "arm64" ]; then
+#   plugins=(docker git golang jira macos pyenv pylint python terraform)
+# else
+#   # VS Code Containers
+#   if [[ ${REMOTE_CONTAINERS} ]] ; then
+#     plugins=(docker git golang terraform)
+#   else
+#     plugins=(docker git golang jira macos pyenv pylint python terraform)
+#   fi
+# fi
+plugins=(git,nvm, dotenv)
 source $ZSH/oh-my-zsh.sh
+source ~/.purepower
 
 # User configuration
 
@@ -120,14 +122,14 @@ if [[ ! ${REMOTE_CONTAINERS} ]] ; then
 fi
 
 # nvm
-export NVM_DIR="$HOME/.nvm"
-if [ "$(arch)" = "arm64" ]; then
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-else
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-fi
+# export NVM_DIR="$HOME/.nvm"
+# if [ "$(arch)" = "arm64" ]; then
+#   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+#   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# else
+#   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+#   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# fi
 
 # Python
 if command -v pyenv 1>/dev/null 2>&1; then
